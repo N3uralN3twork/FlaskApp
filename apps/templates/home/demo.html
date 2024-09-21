@@ -1,0 +1,103 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} JSON Processor {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+<style>
+    .run-button {
+        background-color: blue;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    #output {
+        white-space: pre-wrap;
+        background-color: #333;
+        /* Dark background for contrast */
+        color: yellow;
+        /* Yellow text color */
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin-top: 20px;
+        font-family: monospace;
+        /* For better formatting of JSON */
+    }
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <!-- [ breadcrumb ] start -->
+                <div class="page-header">
+                    <div class="page-block">
+                        <div class="row align-items-center">
+                            <div class="col-md-12">
+                                <div class="page-header-title">
+                                    <h5 class="m-b-10">JSON Processor</h5>
+                                </div>
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="#!">JSON Processor</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- [ breadcrumb ] end -->
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Process JSON</h5>
+                                    </div>
+                                    <div class="card-block">
+                                        <form id="jsonForm">
+                                            <div class="form-group">
+                                                <label for="jsonInput">JSON Input:</label>
+                                                <textarea id="jsonInput" name="jsonInput" rows="6" class="form-control"
+                                                    placeholder="Paste your JSON here..." required></textarea>
+                                            </div>
+                                            <button type="button" onclick="processJSON()"
+                                                class="btn btn-primary run-button">Run</button>
+                                        </form>
+                                        <div id="output" class="mt-4"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- [ Main Content ] end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script>
+    function processJSON() {
+        var jsonInput = document.getElementById('jsonInput').value;
+        try {
+            var parsedJSON = JSON.parse(jsonInput);
+            document.getElementById('output').textContent = JSON.stringify(parsedJSON, null, 2);
+        } catch (error) {
+            document.getElementById('output').textContent = 'Invalid JSON: ' + error.message;
+        }
+    }
+</script>
+{% endblock javascripts %}

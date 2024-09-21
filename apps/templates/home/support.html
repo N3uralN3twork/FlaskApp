@@ -1,0 +1,91 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Support {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+<style>
+    .send-button {
+        background-color: blue;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <!-- [ breadcrumb ] start -->
+                <div class="page-header">
+                    <div class="page-block">
+                        <div class="row align-items-center">
+                            <div class="col-md-12">
+                                <div class="page-header-title">
+                                    <h5 class="m-b-10">Support</h5>
+                                </div>
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="#!">Support</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- [ breadcrumb ] end -->
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Contact Support</h5>
+                                    </div>
+                                    <div class="card-block">
+                                        <form id="supportForm">
+                                            <div class="form-group">
+                                                <label for="subject">Subject:</label>
+                                                <input type="text" id="subject" name="subject" class="form-control"
+                                                    required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message">Your Message:</label>
+                                                <textarea id="message" name="message" rows="4" class="form-control"
+                                                    required></textarea>
+                                            </div>
+                                            <button type="button" onclick="sendEmail()"
+                                                class="btn btn-primary send-button">Send</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- [ Main Content ] end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script>
+    function sendEmail() {
+        var subject = encodeURIComponent(document.getElementById('subject').value);
+        var body = encodeURIComponent(document.getElementById('message').value);
+        var mailtoLink = 'mailto:{{ config.SUPPORT_EMAIL }}?subject=' + subject + '&body=' + body;
+        window.location.href = mailtoLink;
+    }
+</script>
+{% endblock javascripts %}

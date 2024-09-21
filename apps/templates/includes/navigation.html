@@ -6,7 +6,7 @@
             <div class="b-bg">
                 <i class="feather icon-trending-up"></i>
             </div>
-            <span class="b-title">Datta Able</span>
+            <span class="b-title">{{ config.TITLE }}</span>
         </a>
     </div>
     <a class="mobile-menu" id="mobile-header" href="javascript:">
@@ -15,15 +15,7 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li><a href="javascript:" class="full-screen" onclick="javascript:toggleFullScreen()"><i
-                    class="feather icon-maximize"></i></a></li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:" data-toggle="dropdown">Dropdown</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="javascript:">Action</a></li>
-                    <li><a class="dropdown-item" href="javascript:">Another action</a></li>
-                    <li><a class="dropdown-item" href="javascript:">Something else here</a></li>
-                </ul>
-            </li>
+                        class="feather icon-maximize"></i></a></li>
             <li class="nav-item">
                 <div class="main-search">
                     <div class="input-group">
@@ -32,8 +24,8 @@
                             <i class="feather icon-x input-group-text"></i>
                         </a>
                         <span class="input-group-append search-btn btn btn-primary">
-                                <i class="feather icon-search input-group-text"></i>
-                            </span>
+                            <i class="feather icon-search input-group-text"></i>
+                        </span>
                     </div>
                 </div>
             </li>
@@ -64,10 +56,10 @@
                             <li class="notification">
                                 <div class="media">
                                     <img class="img-radius" src="{{ config.ASSETS_ROOT }}/images/user/avatar-1.jpg"
-                                         alt="Generic placeholder image">
+                                        alt="Generic placeholder image">
                                     <div class="media-body">
                                         <p><strong>John Doe</strong><span class="n-time text-muted"><i
-                                                class="icon feather icon-clock m-r-10"></i>30 min</span></p>
+                                                    class="icon feather icon-clock m-r-10"></i>30 min</span></p>
                                         <p>New ticket Added</p>
                                     </div>
                                 </div>
@@ -78,10 +70,10 @@
                             <li class="notification">
                                 <div class="media">
                                     <img class="img-radius" src="{{ config.ASSETS_ROOT }}/images/user/avatar-2.jpg"
-                                         alt="Generic placeholder image">
+                                        alt="Generic placeholder image">
                                     <div class="media-body">
                                         <p><strong>Joseph William</strong><span class="n-time text-muted"><i
-                                                class="icon feather icon-clock m-r-10"></i>30 min</span></p>
+                                                    class="icon feather icon-clock m-r-10"></i>30 min</span></p>
                                         <p>Prchace New Theme and make payment</p>
                                     </div>
                                 </div>
@@ -89,10 +81,10 @@
                             <li class="notification">
                                 <div class="media">
                                     <img class="img-radius" src="{{ config.ASSETS_ROOT }}/images/user/avatar-3.jpg"
-                                         alt="Generic placeholder image">
+                                        alt="Generic placeholder image">
                                     <div class="media-body">
                                         <p><strong>Sara Soudein</strong><span class="n-time text-muted"><i
-                                                class="icon feather icon-clock m-r-10"></i>30 min</span></p>
+                                                    class="icon feather icon-clock m-r-10"></i>30 min</span></p>
                                         <p>currently login</p>
                                     </div>
                                 </div>
@@ -111,9 +103,10 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right profile-notification">
                         <div class="pro-head">
-                            <img src="{{ config.ASSETS_ROOT }}/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+                            <img src="{{ config.ASSETS_ROOT }}/images/user/avatar-1.jpg" class="img-radius"
+                                alt="User-Profile-Image">
                             <span>
-                                {{ current_user.username }}    
+                                {{ current_user.username }}
                             </span>
                             <a href="/auth-signin.html" class="dud-logout" title="Logout">
                                 <i class="feather icon-log-out"></i>
@@ -121,9 +114,9 @@
                         </div>
                         <ul class="pro-body">
                             <li><a href="/profile.html" class="dropdown-item"><i class="feather icon-user"></i>
-                                Profile</a></li>
+                                    Profile</a></li>
                             <li><a href="{{ url_for('authentication_blueprint.logout') }}" class="dropdown-item">
-                                <i class="feather icon-lock"></i> Logout</a>
+                                    <i class="feather icon-lock"></i> Logout</a>
                             </li>
                         </ul>
                     </div>

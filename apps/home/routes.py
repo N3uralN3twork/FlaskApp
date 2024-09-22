@@ -47,6 +47,8 @@ def route_template(template):
         if not template.endswith("models.html"):
             # Serve the file (if exists) from app/templates/home/FILE.html
             return render_template("home/" + template, segment=segment)
+        elif template.endswith("landing.html"):
+            return render_template("home/landing.html")
         elif template.endswith("demo.html"):
             return render_template("home/demo.html", df=dfBL)
         else:

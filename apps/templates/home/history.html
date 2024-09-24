@@ -1,0 +1,379 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Home Page {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+<style>
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+  #events-1928 {
+    width: 100%;
+    padding: var(--sectionPadding);
+    background-color: #082032;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+  #events-1928 .cs-container {
+    width: 100%;
+    /* changes to 1280px at desktop */
+    max-width: 49rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+  }
+  #events-1928 .cs-content {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 48px - 64px */
+    gap: clamp(3rem, 6vw, 4rem);
+    position: relative;
+    z-index: 3;
+  }
+  #events-1928 .cs-title {
+    margin: 0;
+  }
+  #events-1928 .cs-topper {
+    color: var(--secondary);
+  }
+  #events-1928 .cs-button-solid {
+    font-size: 1rem;
+    font-weight: 700;
+    /* 46px - 56px */
+    line-height: clamp(2.875em, 5.5vw, 3.5em);
+    text-align: center;
+    text-decoration: none;
+    min-width: 9.375rem;
+    margin: 0;
+    /* prevents padding from adding to the width */
+    box-sizing: border-box;
+    padding: 0 1.5rem;
+    background-color: transparent;
+    overflow: hidden;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 6.25rem;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s;
+    transition: background-color 0.3s;
+  }
+  #events-1928 .cs-button-solid:hover {
+    background-color: var(--primary);
+    color: #fff;
+  }
+  #events-1928 .cs-image-group {
+    font-size: min(2.29vw, 1rem);
+    width: 32.9375em;
+    height: 42.5em;
+    display: block;
+    position: relative;
+    z-index: 2;
+  }
+  #events-1928 .cs-picture {
+    width: 32.625em;
+    height: 42.5em;
+    box-sizing: border-box;
+    background-color: #082032;
+    overflow: hidden;
+    border: 8px solid #082032;
+    border-radius: 16.25rem;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+  }
+  #events-1928 .cs-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.7s;
+  }
+  #events-1928 .cs-graphic {
+    height: auto;
+    position: absolute;
+  }
+  #events-1928 .cs-twirl {
+    width: 11.0625em;
+    height: auto;
+    top: 0.9375em;
+    right: 0;
+    z-index: 1;
+  }
+  #events-1928 .cs-peach {
+    width: 5.375em;
+    height: auto;
+    top: -0.5625em;
+    right: 5.6875em;
+  }
+  #events-1928 .cs-blob {
+    width: 33em;
+    height: auto;
+    right: 0;
+    bottom: -3em;
+    z-index: -2;
+  }
+  #events-1928 .cs-leaf {
+    width: 10.9375em;
+    height: auto;
+    bottom: 1em;
+    left: 0;
+  }
+  #events-1928 .cs-graphic3 {
+    /* 385.6px - 835.2px */
+    width: clamp(24.1rem, 48vw, 52.2rem);
+    height: auto;
+    opacity: 0.5;
+    display: none;
+    position: absolute;
+    top: 0rem;
+    right: -5.5rem;
+    z-index: 1;
+  }
+  #events-1928 .cs-graphic4 {
+    /* 484px - 835.2px */
+    width: clamp(30.25rem, 60vw, 52.2rem);
+    height: auto;
+    opacity: 0.5;
+    display: none;
+    position: absolute;
+    top: 5.3125rem;
+    left: -9.5rem;
+    z-index: 1;
+  }
+  #events-1928 .cs-card-group {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    /* 16px - 20px */
+    gap: clamp(1rem, 3vw, 1.25rem);
+  }
+  #events-1928 .cs-item {
+    text-align: left;
+    text-decoration: none;
+    list-style: none;
+    width: 100%;
+    /* prevents padding from affecting height and width */
+    box-sizing: border-box;
+    /* 16px - 24px */
+    padding: clamp(1rem, 3vw, 1.5rem);
+    background-color: #082032;
+    overflow: hidden;
+    /* 24px - 40px */
+    border-radius: clamp(1.5rem, 4vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  #events-1928 .cs-item:hover .cs-h3 {
+    color: var(--primary);
+  }
+  #events-1928 .cs-date {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.5em;
+    /* 56px - 80px */
+    width: clamp(8.313rem, 16vw, 9.5rem);
+    height: clamp(4.813rem, 10vw, 6rem);
+    margin: 0;
+    padding: 0.5rem 1rem;
+    /* clips the pseudo to remove the corners */
+    overflow: hidden;
+    color: var(--bodyTextColor);
+    border-radius: 6.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    transition: border-color 0.3s;
+    flex: none;
+  }
+  #events-1928 .cs-date:before {
+    /* background color */
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #082032;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: background-color 0.3s;
+  }
+  #events-1928 .cs-date strong {
+    font-size: 1.9375rem;
+    font-weight: 700;
+    line-height: 1.2em;
+    color: #ff7504;
+  }
+  #events-1928 .cs-h3 {
+    /* 20px - 25px */
+    font-size: clamp(1.25rem, 2.5vw, 1.5625rem);
+    font-weight: 700;
+    line-height: 1.2em;
+    /* 4px - 16px */
+    margin: 0 0 clamp(0.5rem, 1vw, 0.75rem);
+    color: var(--headerColor);
+    transition: color 0.3s;
+  }
+  #events-1928 .cs-time {
+    font-size: 1rem;
+    line-height: 1.5em;
+    margin: 0;
+    color: var(--bodyTextColor);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+  #events-1928 .cs-card-group {
+    max-width: clamp(44rem, 80vw, 46.8125rem);
+  }
+  #events-1928 .cs-item {
+    flex-direction: row;
+    align-items: center;
+  }
+  #events-1928 .cs-button-solid {
+    margin-left: auto;
+  }
+  #events-1928 .cs-graphic3 {
+    display: block;
+  }
+  #events-1928 .cs-graphic4 {
+    display: block;
+  }
+}
+/* Large Desktop -1300px */
+@media only screen and (min-width: 81.25rem) {
+  #events-1928 .cs-container {
+    max-width: 80rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+  #events-1928 .cs-content {
+    padding: 3rem 0;
+    align-self: center;
+  }
+  #events-1928 .cs-image-group {
+    flex: none;
+    height: auto;
+  }
+  #events-1928 .cs-picture {
+    height: 100%;
+  }
+}
+/* Larger Desktop -1920px */
+@media only screen and (min-width: 120rem) {
+  #events-1928 .cs-graphic3 {
+    width: 52.1875rem;
+    margin-left: 8.875rem;
+    right: auto;
+    left: 50%;
+  }
+  #events-1928 .cs-graphic4 {
+    width: 52.1875rem;
+    margin-right: 20.5625rem;
+    top: 7.75rem;
+    right: 50%;
+    left: auto;
+  }
+}
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+<section id="events-1928">
+    <div class="cs-container">
+        <div class="pcoded-main-container">
+            <div class="pcoded-wrapper">
+                <div class="pcoded-content">
+                    <div class="pcoded-inner-content">
+                        <!-- [ breadcrumb ] start -->
+                        <div class="page-header">
+                            <div class="page-block">
+                                <div class="row align-items-center">
+                                    <div class="col-md-12">
+                                        <div class="page-header-title">
+                                            <h5 class="m-b-10">Revision History</h5>
+                                        </div>
+                                        <ul class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
+                                            <li class="breadcrumb-item"><a href="#!">History</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- [ breadcrumb ] end -->
+                    </div>
+                </div>
+            </div>
+        <div class="cs-content">
+            <div class="cs-flex">
+                <span class="cs-topper">Our Events</span>
+                <h2 class="cs-title">Upcoming Events</h2>
+            </div>
+            <ul class="cs-card-group">
+                <li class="cs-item">
+                    <span class="cs-date">
+                        <strong>26</strong>
+                        Mar 2024
+                    </span>
+                    <div class="cs-info">
+                        <h3 class="cs-h3">30% offer on all services</h3>
+                        <span class="cs-time"><img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/gold-clock.svg" alt="icon" width="24" height="24" loading="lazy" decoding="async">12:00AM - 02:00PM</span>
+                    </div>
+                    <a href="" class="cs-button-solid">Buy Ticket</a>
+                </li>
+                <li class="cs-item">
+                    <span class="cs-date">
+                        <strong>17</strong>
+                        Apr 2024
+                    </span>
+                    <div class="cs-info">
+                        <h3 class="cs-h3">15% offer on dermal fillers services</h3>
+                        <span class="cs-time"><img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/gold-clock.svg" alt="icon" width="24" height="24" loading="lazy" decoding="async">12:00AM - 02:00PM</span>
+                    </div>
+                    <a href="" class="cs-button-solid">Buy Ticket</a>
+                </li>
+                <li class="cs-item">
+                    <span class="cs-date">
+                        <strong>12</strong>
+                        May 2024
+                    </span>
+                    <div class="cs-info">
+                        <h3 class="cs-h3">40% offer on micro needling services</h3>
+                        <span class="cs-time"><img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/gold-clock.svg" alt="icon" width="24" height="24" loading="lazy" decoding="async">12:00AM - 02:00PM</span>
+                    </div>
+                    <a href="" class="cs-button-solid">Buy Ticket</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <img class="cs-graphic3" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/faces-graphic.svg" alt="graphic" loading="lazy" decoding="async" width="835" height="912">
+    <img class="cs-graphic4" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/faces-graphic-flipped.svg" alt="graphic" loading="lazy" decoding="async" width="835" height="912">
+</section>
+
+{% endblock content %}
+                                
